@@ -9,6 +9,7 @@ conn = sqlitecloud.connect(f"sqlitecloud://cgxs5yl7hk.sqlite.cloud:8860?apikey={
 cursor = conn.execute("USE DATABASE chinook.sqlite; SELECT * FROM albums WHERE AlbumId = ?", (1, ))
 result = cursor.fetchone()
 
-print(result)
+st.write(result)
+# print(result)
 
 conn.close()
