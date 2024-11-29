@@ -1,5 +1,5 @@
 import streamlit as st
-import sqlitecloud
+# import sqlitecloud
 
 st.title('The Baseball App')
 
