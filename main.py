@@ -11,7 +11,7 @@ cursor = conn.execute("USE DATABASE baseball_card_app")
 
 result = cursor.fetchall()
 
-albums = pd.read_sql("SELECT * FROM card_list LIMIT 20", conn)
+albums = pd.read_sql("SELECT * FROM card_list LIMIT 10", conn)
 
 st.dataframe(albums, hide_index=True)
 
