@@ -16,3 +16,10 @@ albums = pd.read_sql("SELECT * FROM card_list LIMIT 10", conn)
 st.dataframe(albums, hide_index=True)
 
 conn.close()
+
+with st.form("card_input"):
+  player_name = st.text_input("Player Name", "Joe Random")
+  manufacturer = st.selectbox("Manufacturer",("Topps", "Upper Deck"))
+  submitted = st.form_submit_button("Submit")
+  if submitted:
+    st.write("Thank you for your submission")
