@@ -20,6 +20,10 @@ conn.close()
 with st.form("card_input"):
   player_name = st.text_input("Player Name", "Joe Random")
   manufacturer = st.selectbox("Manufacturer",("Topps", "Upper Deck"))
+  year = st.number_input("Insert a number")
+  sport = st.selectbox("Sport",("Baseball","Hockey","Football","Basketball"))
+  card_no = st.text_input("Card Number","001")
+  owner = st. text_input("Owner","Suzie Who")
   submitted = st.form_submit_button("Submit")
   if submitted:
     st.write("Thank you for your submission")
