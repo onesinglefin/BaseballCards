@@ -15,7 +15,7 @@ albums = pd.read_sql("SELECT * FROM card_list LIMIT 10", conn)
 
 st.dataframe(albums, hide_index=True)
 
-#conn.close()
+conn.close()
 
 with st.form("card_input"):
   player_name = st.text_input("Player Name", "Joe Random")
@@ -26,5 +26,9 @@ with st.form("card_input"):
   owner = st. text_input("Owner","Suzie Who")
   submitted = st.form_submit_button("Submit")
   if submitted:
-    st.write("Thank you for your submission")
+    conn = sqlitecloud.connect(f"sqlitecloud://cgxs5yl7hk.sqlite.cloud:8860?apikey={apikey}")
+    cursor = conn.execute("USE DATABASE baseball_card_app")
     cursor.execute('INSERT INTO card_list (player_name, manufacturer, year, sport, card_number, owner) VALUES (?, ?, ?, ?, ?, ?)', (player_name, manufacturer, year, sport, card_number, owner))
+    conn.commit()
+    conn.close()
+    st.write("Thank you for your submission")
