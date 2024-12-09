@@ -15,7 +15,7 @@ albums = pd.read_sql("SELECT * FROM card_list LIMIT 10", conn)
 
 st.dataframe(albums, hide_index=True)
 
-conn.close()
+#conn.close()
 
 with st.form("card_input"):
   player_name = st.text_input("Player Name", "Joe Random")
