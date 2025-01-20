@@ -32,3 +32,4 @@ with st.form("card_input"):
     conn.commit()
     conn.close()
     st.write("Thank you for your submission")
+    st.rerun()
